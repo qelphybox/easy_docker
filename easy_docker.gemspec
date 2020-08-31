@@ -9,15 +9,15 @@ Gem::Specification.new do |spec|
   spec.version     = EasyDocker::VERSION
   spec.authors     = ["Kirill Bobykin"]
   spec.email       = ["qelphybox@gmail.com"]
-  spec.homepage    = "TODO"
-  spec.summary     = "TODO: Summary of EasyDocker."
-  spec.description = "TODO: Description of EasyDocker."
+  spec.homepage    = "https://github.com/qelphybox/easy_docker"
+  spec.summary     = "Easy docker setup for rails app. Install. Generate. That's it."
+  spec.description = "Easy docker setup for rails app. Install. Generate. That's it."
   spec.license     = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
   if spec.respond_to?(:metadata)
-    spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
+    spec.metadata["allowed_push_host"] = "ttps://rubygems.org"
   else
     raise "RubyGems 2.0 or newer is required to protect against " \
       "public gem pushes."
@@ -26,6 +26,4 @@ Gem::Specification.new do |spec|
   spec.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
   spec.add_dependency "rails", "~> 6.0.3", ">= 6.0.3.2"
-
-  spec.add_development_dependency "sqlite3"
 end
