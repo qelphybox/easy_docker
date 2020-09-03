@@ -1,5 +1,6 @@
 FROM ruby:<%= ruby_version %>
 RUN apt-get update -qq && apt-get install -y <%= apt_get_libraries %>
+RUN gem install bundler -v '<%= bundler_version %>'
 RUN mkdir /app
 WORKDIR /app
 COPY Gemfile /app/Gemfile
