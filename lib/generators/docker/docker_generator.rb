@@ -22,15 +22,8 @@ class DockerGenerator < Rails::Generators::Base
 
   private
 
-  def app_data2
-    @app_data2 ||= EasyDocker::AppData.collect
-  end
   def app_data
-    @app_data ||= {
-      database_configuration: Rails.configuration.database_configuration[Rails.env],
-      ruby_version: RUBY_VERSION,
-      bundler_version: get_bundler_version
-    }
+    @app_data ||= EasyDocker::AppData.collect
   end
 
   def get_bundler_version

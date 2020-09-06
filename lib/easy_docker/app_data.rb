@@ -12,19 +12,21 @@ module EasyDocker
   # app_data.bundler_version # => '2.1.4'
   # app_data.database_configuration # => Struct{type: 'postgres', version: '12', uri: 'posgresql://...' }
   class AppData < Struct.new(*APP_DATA_FIELDS)
-    # Struct for database
-    DatabaseConfiguration = Struct.new(
-      :adapter,
-      :database,
-      :username,
-      :password,
-      :host,
-      :port,
-      :pool,
-      :timeout
-    )
+    DATABASE_CONFIGURATION_FIELDS = %i[
+      type
+      database
+      username
+      password
+      host
+      port
+      pool
+      timeout
+    ]
+    # Struct for database configuration fields
+    DatabaseConfiguration = Struct.new(*DATABASE_CONFIGURATION_FIELDS)
+
     def self.collect
-      app_data = AppData::Collector.new.collect
+      app_data = AppData::Collector.new(APP_DATA_FIELDS).collect
       new(app_data.values_at(*APP_DATA_FIELDS))
     end
   end
